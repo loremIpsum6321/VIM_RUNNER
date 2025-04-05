@@ -1,0 +1,101 @@
+#ui-overlay {
+    width: 90%; /* Match game screen width or slightly wider */
+    max-width: 1250px; /* Max width */
+    background-color: var(--ui-background);
+    border: 1px solid var(--secondary-text-color);
+    border-bottom: none; /* Optional: remove border between UI and game */
+    padding: 8px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.9em;
+    margin-bottom: 5px; /* Space between UI and game screen */
+    color: var(--secondary-text-color);
+}
+
+.ui-section {
+    display: flex;
+    align-items: center;
+    gap: 20px; /* Space between items in a section */
+}
+
+.ui-section.left {
+    justify-content: flex-start;
+}
+.ui-section.center {
+    justify-content: center;
+    flex-grow: 1; /* Allow center section to take available space */
+    padding: 0 20px; /* Padding around center elements */
+}
+.ui-section.right {
+    justify-content: flex-end;
+    text-align: right;
+}
+
+/* --- Specific UI Elements --- */
+#score span,
+#timer span,
+#level-name span {
+    color: var(--primary-text-color);
+    font-weight: bold;
+}
+
+#status-message {
+    min-height: 1.2em; /* Reserve space */
+    color: var(--warning-color);
+    font-style: italic;
+}
+
+#command-buffer {
+    font-size: 0.8em;
+    color: var(--primary-text-color);
+    background-color: rgba(0,0,0,0.4);
+    padding: 2px 5px;
+    border-radius: 3px;
+    min-width: 50px; /* Ensure some base width */
+    text-align: left;
+}
+
+
+/* --- Resource Bars (Integrity, CPU) --- */
+.resource-bar {
+    display: flex;
+    align-items: center;
+    width: 200px; /* Fixed width for bars */
+    gap: 8px;
+}
+.resource-bar .label {
+    font-size: 0.8em;
+    width: 80px; /* Fixed width for labels */
+    text-align: right;
+    color: var(--secondary-text-color);
+}
+.resource-bar .bar-background {
+    flex-grow: 1;
+    height: 12px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border: 1px solid var(--secondary-text-color);
+    padding: 1px; /* Inner padding */
+}
+.resource-bar .bar-value {
+    height: 100%;
+    background-color: var(--primary-text-color);
+    transition: width 0.2s ease-out; /* Smooth transition for value changes */
+}
+#cpu-cycles .bar-value {
+    background-color: var(--accent-color); /* Different color for CPU */
+}
+#integrity.low .bar-value {
+    background-color: var(--warning-color); /* Change bar color when low */
+}
+#integrity.critical .bar-value {
+    background-color: var(--error-color); /* Change bar color when critical */
+    animation: blink 0.8s infinite;
+}
+
+.resource-bar .percent {
+    font-size: 0.8em;
+    width: 40px; /* Fixed width for percentage text */
+    text-align: right;
+    color: var(--primary-text-color);
+}

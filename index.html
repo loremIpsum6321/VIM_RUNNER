@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VIM://RUNNER</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/game.css">
+    <link rel="stylesheet" href="css/ui.css">
+    </head>
+<body>
+    <div id="game-container">
+        
+        <div id="ui-overlay">
+            <div class="ui-section left">
+                <div id="level-name">STREAM: <span>INITIATING...</span></div>
+                <div id="score">SCORE: <span>0</span></div>
+            </div>
+
+            <div class="ui-section center">
+                <div id="integrity" class="resource-bar">
+                    <span class="label">INTEGRITY</span>
+                    <div class="bar-background">
+                        <div class="bar-value" style="width: 100%;"></div>
+                    </div>
+                    <span class="percent">100%</span>
+                </div>
+                <div id="cpu-cycles" class="resource-bar">
+                     <span class="label">CPU CYCLES</span>
+                     <div class="bar-background">
+                        <div class="bar-value" style="width: 100%;"></div>
+                    </div>
+                    <span class="percent">100%</span>
+                </div>
+            </div>
+
+            <div class="ui-section right">
+                <div id="timer">TIME: <span>0:00</span></div>
+                 <div id="status-message"></div>
+                 <div id="command-buffer">:&nbsp;</div> </div>
+        </div>
+
+        <div id="game-screen">
+            </div>
+
+    </div>
+
+    <script type="module" src="js/main.js"></script>
+</body>
+</html>

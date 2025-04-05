@@ -1,0 +1,55 @@
+/* Import a monospace font (example: IBM Plex Mono) */
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&display=swap');
+
+/* CSS Variables for theme colors */
+:root {
+    --background-color: #0a0a14; /* Very dark blue/black */
+    --primary-text-color: #00ffcc; /* Bright cyan/teal */
+    --secondary-text-color: #b3b3ff; /* Lighter purple/blue */
+    --accent-color: #ff00ff; /* Magenta accent */
+    --error-color: #ff3333; /* Red for errors/damage */
+    --warning-color: #ffff66; /* Yellow for warnings */
+    --font-family: 'IBM Plex Mono', monospace;
+    --ui-background: rgba(10, 10, 20, 0.85); /* Semi-transparent dark bg for UI */
+}
+
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    overflow: hidden; /* Prevent scrollbars */
+    background-color: var(--background-color);
+    color: var(--primary-text-color);
+    font-family: var(--font-family);
+    font-size: 16px; /* Base font size */
+}
+
+#game-container {
+    display: flex;
+    flex-direction: column; /* Stack UI and game screen */
+    justify-content: center; /* Center vertically */
+    align-items: center; /* Center horizontally */
+    width: 100%;
+    height: 100%;
+    padding: 10px; /* Small padding around the container */
+}
+
+/* Optional: Add a subtle scanline effect or background pattern */
+/* body::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+    background-size: 100% 3px, 4px 100%;
+    z-index: -1;
+    pointer-events: none;
+    opacity: 0.2;
+} */

@@ -1,0 +1,111 @@
+#game-screen {
+    /* Dimensions will likely be set/managed by JS based on level size */
+    /* Example fixed size: */
+    /* width: 80vw; */
+    /* height: 70vh; */
+    /* max-width: 1000px; */ /* Limit max width */
+    /* max-height: 700px; */ /* Limit max height */
+    
+    aspect-ratio: 16 / 9; /* Maintain aspect ratio */
+    width: 85%; /* Adjust width as needed */
+    max-width: 1200px;
+
+    background-color: rgba(0, 0, 0, 0.5); /* Dark semi-transparent background for the game area */
+    border: 1px solid var(--primary-text-color);
+    position: relative; /* Needed for absolute positioning of game elements */
+    overflow: hidden; /* Hide anything that might go outside bounds */
+
+    /* Use CSS Grid for tile layout */
+    display: grid;
+    /* Grid template columns/rows will be set dynamically by JS */
+    /* example: grid-template-columns: repeat(80, 1fr); */
+    /* example: grid-template-rows: repeat(45, 1fr); */
+    gap: 0; /* No gap between tiles */
+}
+
+/* --- Tile Styles --- */
+.tile {
+    /* Each tile occupies one grid cell */
+    /* font-size adjusted relative to cell size by JS potentially */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1em; /* Will likely need dynamic adjustment */
+    color: var(--secondary-text-color);
+    user-select: none; /* Prevent text selection */
+    transition: background-color 0.1s ease, color 0.1s ease; /* Smooth transitions */
+}
+
+/* Specific tile types */
+.tile.pathway {
+    color: #444; /* Dim pathways */
+}
+.tile.data-node {
+    color: var(--primary-text-color);
+    font-weight: bold;
+}
+.tile.corrupted {
+    color: var(--error-color);
+    background-color: rgba(255, 51, 51, 0.1);
+    font-weight: bold;
+}
+.tile.barrier {
+    background-color: #333;
+    color: #555;
+}
+.tile.exit-node {
+    color: var(--accent-color);
+    background-color: rgba(255, 0, 255, 0.1);
+    font-weight: bold;
+    animation: pulse 1.5s infinite ease-in-out;
+}
+
+
+/* --- Entity Styles --- */
+.player {
+    /* Style for the player's cursor/avatar */
+    /* Assumes player is also a tile or positioned within one */
+    background-color: rgba(0, 255, 204, 0.3); /* Highlight player's tile */
+    color: #ffffff; /* Make player character white */
+    font-weight: bold;
+    z-index: 10; /* Ensure player is above other tiles */
+    border-radius: 2px; /* Slightly rounded */
+    outline: 1px solid var(--primary-text-color);
+}
+
+.enemy {
+    /* Basic style for enemies */
+    color: var(--warning-color);
+    font-weight: bold;
+    z-index: 5;
+    /* Specific enemy types can have different characters/colors */
+}
+/* Example enemy state */
+.enemy.alert {
+    color: var(--error-color);
+    animation: blink 0.5s infinite;
+}
+
+
+/* --- Interaction Styles --- */
+.highlight { /* Style for the character/phrase being typed */
+    background-color: rgba(255, 255, 102, 0.3); /* Yellow highlight */
+    color: #ffffcc;
+    outline: 1px dashed var(--warning-color);
+}
+.typed-correct { /* Style for correctly typed characters in a phrase */
+    color: #66ff66; /* Bright green */
+}
+
+
+/* --- Animations --- */
+@keyframes pulse {
+    0% { background-color: rgba(255, 0, 255, 0.1); }
+    50% { background-color: rgba(255, 0, 255, 0.3); }
+    100% { background-color: rgba(255, 0, 255, 0.1); }
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
